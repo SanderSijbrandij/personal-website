@@ -46,7 +46,11 @@ const config = {
         options: {
           runner: 'DISABLE_SPRING=1 bin/rails runner'
         }
-      }
+      },
+      {
+        test: /\.sass$/,
+        loader: 'sass-loader',
+      },
     ]
   },
 
