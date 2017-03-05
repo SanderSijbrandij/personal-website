@@ -2,10 +2,18 @@ import React, { PureComponent } from 'react'
 
 class Title extends PureComponent {
   render() {
-    const { text } = this.props
+    const { text, level, type } = this.props
+    const classes = `${type} is-${level}`
 
     return (
-      <h1 className='title'>{text}</h1>
+      <span>
+      { level == '1' && <h1 className={classes}>{text}</h1> }
+      { level == '2' && <h2 className={classes}>{text}</h2> }
+      { level == '3' && <h3 className={classes}>{text}</h3> }
+      { level == '4' && <h4 className={classes}>{text}</h4> }
+      { level == '5' && <h5 className={classes}>{text}</h5> }
+      { level == '6' && <h6 className={classes}>{text}</h6> }
+      </span>
     )
   }
 }

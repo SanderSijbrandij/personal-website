@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
-
-import Title from './components/shared/Title'
+import Banner from './components/shared/Banner'
 
 class App extends PureComponent {
   render() {
     return (
-      <div className='container'>
-        <Title text='hello from react' />
+      <div className='content'>
+        <Banner />
       </div>
     )
   }
