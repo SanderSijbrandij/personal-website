@@ -1,24 +1,15 @@
-# README
+# [WIP] Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a github repo for a portfolio website. It's currently actively being worked and experimented on.
 
-Things you may want to cover:
+This project is built in Rails 5.1 and React.
 
-* Ruby version
+## How to run this project
 
-* System dependencies
+To run this project, clone it first. Afterwards:
 
-* Configuration
+* bundle install
+* rails db:setup
+* rails server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project should run at http://localhost:3000
