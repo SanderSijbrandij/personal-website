@@ -5,7 +5,9 @@ import Title from './components/shared/Title'
 class App extends PureComponent {
   render() {
     return (
-      <Title text='hello from react' />
+      <div className='container'>
+        <Title text='hello from react' />
+      </div>
     )
   }
 }
