@@ -6,6 +6,7 @@
     "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.2.0",
     "babel-preset-react": "^6.23.0",
+    "bulma": "^0.3.2",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.4",
     "compression-webpack-plugin": "^0.3.2",

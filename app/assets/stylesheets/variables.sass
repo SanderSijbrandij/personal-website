@@ -1,5 +1,22 @@
-$highlight:  #FF530D
-$dark:       #2B3A42
-$medium:     #3F5765
-$light:      #BDD4DE
-$background: #EFEFEF
+// Override variables here
+// You can add new ones or update existing ones:
+
+$theme-highlight:  #FF530D
+$theme-dark:       #2B3A42
+$theme-medium:     #3F5765
+$theme-light:      #BDD4DE
+$theme-background: #EFEFEF
+
+// Override generated variables here
+// For example, by default, the $danger color is $red and the font is sans-serif
+// You can change these values
+
+$primary: $theme-highlight
+$text: $theme-medium
+$text-strong: $theme-dark
+$body-background: $theme-background
+$border: $theme-light
+
+
+// Lastly, import bulma
+@import "bulma"
