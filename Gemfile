@@ -13,7 +13,8 @@ gem 'sass-rails', github: "rails/sass-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', github: "rails/webpacker"
 gem 'turbolinks', '~> 5'
-gem "bulma-rails", "~> 0.3.2"
+gem 'bulma-rails', '~> 0.3.2'
+gem 'foreman'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

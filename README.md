@@ -10,6 +10,6 @@ To run this project, clone it first. Afterwards:
 
 * bundle install
 * rails db:setup
-* rails server
+* ./bin/server
 
-The project should run at http://localhost:3000
+The project should run at http://localhost:5000
