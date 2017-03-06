@@ -1,10 +1,10 @@
 import request from 'superagent'
 
 export const GET_PAGES = 'GET_PAGES'
-export const GET_PAGES_SUCCESS = 'GET_PAGES_SUCCESS'
+export const GET_PAGES_RECEIVED = 'GET_PAGES_RECEIVED'
 export const GET_PAGES_ERROR = 'GET_PAGES_ERROR'
 
-const PageService = store => dispatch => action => {
+const pageService = store => dispatch => action => {
   // Pass all actions through by default
   dispatch(action)
 
@@ -18,8 +18,9 @@ const PageService = store => dispatch => action => {
       // Success
       .then((response) => {
         const data = JSON.parse(response.text)
+
         dispatch({
-          type: GET_PAGES_SUCCESS,
+          type: GET_PAGES_RECEIVED,
           payload: data
         })
       })
@@ -36,7 +37,6 @@ const PageService = store => dispatch => action => {
   default:
     break
   }
-
-};
+}
 
 export default pageService

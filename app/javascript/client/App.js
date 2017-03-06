@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
-import store, { history } from './store'
 import { Router, Route, IndexRoute } from 'react-router'
-import {browserHistory} from 'react-router';
+
+import store, { history } from './store'
 
 import Banner from './components/shared/Banner'
 import Navigation from './components/shared/Navigation'
@@ -26,5 +26,6 @@ class App extends PureComponent {
     )
   }
 }
+
 
 export default App
