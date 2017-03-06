@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { history } from '../../store'
 import setCurrentPage from '../../actions/pages/set-current'
 
 class Navigation extends PureComponent {
