@@ -5,7 +5,7 @@ export default (pages, link) => {
     if (page.link == link) return true
     return false
   })[0]
-  
+
   return {
     type: SET_CURRENT_PAGE,
     payload: currentPage

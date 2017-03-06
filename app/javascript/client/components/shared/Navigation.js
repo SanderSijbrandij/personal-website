@@ -1,22 +1,23 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { history } from '../../store'
+import setCurrentPage from '../../actions/pages/set-current'
 
 class Navigation extends PureComponent {
-  setCurrentPage(e) {
-    e.preventDefault()
-
-    const location = `/${this}`
-    history.push(location)
+  changePage(page) {
+    this.props.setCurrentPage(this.props.pages, page)
   }
 
   renderTab(page) {
     if (!!this.props.currentPage) {
       const { currentPage } = this.props
-      const classes = (currentPage.link == page.link) ? 'nav-item is-tab is-active' : 'nav-item is-tab'
-      return (
-        <a onClick={this.setCurrentPage.bind(page.link)} key={page.link} className={classes}>{page.title}</a>
-      )
+      const classes = (currentPage.link == page.link) ?
+                      'nav-item is-tab is-active' :
+                      'nav-item is-tab'
+      return <a onClick={this.changePage.bind(this, page.link)}
+                key={page.link}
+                className={classes}>{page.title}
+              </a>
     } else {
       return ( <p>Loading...</p>)
     }
@@ -36,4 +37,4 @@ class Navigation extends PureComponent {
 }
 
 const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
-export default connect(mapStateToProps)(Navigation)
+export default connect(mapStateToProps, { setCurrentPage })(Navigation)
