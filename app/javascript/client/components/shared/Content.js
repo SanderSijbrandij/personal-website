@@ -10,9 +10,11 @@ class Content extends PureComponent {
   }
 
   render() {
+    const { currentPage } = this.props
     return (
       <div className='main'>
-        {this.props.children}
+        { !currentPage && 'Loading content...' }
+        { !!currentPage && currentPage.content}
       </div>
     )
   }
