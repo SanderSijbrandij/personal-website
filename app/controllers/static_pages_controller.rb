@@ -1,10 +1,12 @@
 class StaticPagesController < ApplicationController
   def index
-    # return serializer with links only.
+    @pages = StaticPage.all
+    render json: @pages
   end
 
   def show
-    # return everything
+    @page = StaticPage.find(params[:link])
+    render json: @page
   end
 
   def react_entry; end
