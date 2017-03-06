@@ -6,9 +6,9 @@ class Banner extends PureComponent {
     return(
       <section className="hero is-primary is-bold">
         <div className="hero-body">
-          <div className="container has-text-centered">
-            <Title text='Sander Sijbrandij' type='title' level='2' />
-            <Title text='Junior Web Developer' type='subtitle' level='4' />
+          <div className="container has-text-right">
+            <Title text='Sander Sijbrandij' type='title' level='p' size='2' />
+            <Title text='Junior Web Developer' type='subtitle' level='p' size='4' />
           </div>
         </div>
       </section>
