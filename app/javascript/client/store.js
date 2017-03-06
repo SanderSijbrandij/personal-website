@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
 import * as reducers from './reducers'
 
+import pageService from './middleware/api.js'
+
 const baseHistory = browserHistory
 const routingMiddleware = routerMiddleware(baseHistory)
 const reducer = combineReducers(Object.assign({}, reducers, {
@@ -15,6 +17,7 @@ const devTools = window.devToolsExtension ? window.devToolsExtension() : (f) => 
 const enhancer = compose(
   applyMiddleware(routingMiddleware),
   applyMiddleware(ReduxThunk),
+  applyMiddleware(pageService),
   devTools
 )
 
