@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import fetchPages from '../actions/pages/fetch'
+import setCurrentPage from '../actions/pages/set-current'
 
 import Page from './Page'
 
@@ -10,9 +11,13 @@ class Pages extends PureComponent {
     this.props.fetchPages()
   }
 
+  changePage(page) {
+    this.props.setCurrentPage(this.props.pages, page)
+  }
+
   renderPageLink(page) {
     return(
-      <a key={page.link} className="panel-block">
+      <a onClick={this.changePage.bind(this, page.link)} key={page.link} className="panel-block">
         {page.title}
       </a>
     )
@@ -29,7 +34,7 @@ class Pages extends PureComponent {
               <div className='panel-heading'>
               Pages
               </div>
-              {this.props.pages.map(this.renderPageLink)}
+              {this.props.pages.map(this.renderPageLink.bind(this))}
             </nav>
           </div>
 
@@ -43,4 +48,4 @@ class Pages extends PureComponent {
 }
 
 const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
-export default connect(mapStateToProps, { fetchPages })(Pages)
+export default connect(mapStateToProps, { fetchPages, setCurrentPage })(Pages)
