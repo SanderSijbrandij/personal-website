@@ -1,13 +1,5 @@
-export FETCHED_PAGES = 'FETCHED_PAGES'
+import { GET_PAGES } from '../../middleware/api'
 
 export default () => {
-  return (dispatch) => ({
-
-    // connect to API
-
-    // then => return fetched pages
-
-    // catch => log the error (for now)
-
-  })
+  return { type: GET_PAGES }
 }
