@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'bulma-rails', '~> 0.3.2'
 gem 'foreman'
 gem 'active_model_serializers'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
