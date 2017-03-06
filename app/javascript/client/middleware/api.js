@@ -1,3 +1,9 @@
+/*
+  this 'middleware' (it's not really middleware per se)
+  is here to handle all API calls and what needs to happen before, during
+  and after them. They're pretty much actions that require the API.
+*/
+
 import request from 'superagent'
 
 export const GET_PAGES = 'GET_PAGES'
