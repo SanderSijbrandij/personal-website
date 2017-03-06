@@ -1,4 +1,4 @@
-import SET_CURRENT_PAGE from '../actions/pages/set-current'
+import { SET_CURRENT_PAGE } from '../actions/pages/set-current'
 
 export default (state = {}, { type, payload }) => {
   switch(type) {

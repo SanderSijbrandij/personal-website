@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
 class Navigation extends PureComponent {
   render() {
@@ -17,4 +18,5 @@ class Navigation extends PureComponent {
   }
 }
 
-export default Navigation
+const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
+export default connect(mapStateToProps)(Navigation)
