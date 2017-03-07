@@ -1,6 +1,7 @@
 import { GET_PAGES_RECEIVED } from '../middleware/api'
 import { UPDATE_PAGE } from '../../admin/actions/pages/update'
 import { DESTROY_PAGE } from '../../admin/actions/pages/destroy'
+import { CREATE_PAGE } from '../../admin/actions/pages/create'
 
 export default (state = [], { type, payload }) => {
   switch(type) {
@@ -21,6 +22,9 @@ export default (state = [], { type, payload }) => {
         if (page.link == payload.link) return false
         return true
       })
+
+    case CREATE_PAGE:
+      return [Object.assign({}, payload)].concat(state)
 
     default:
       return state

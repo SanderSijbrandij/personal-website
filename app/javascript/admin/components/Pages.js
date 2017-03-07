@@ -38,7 +38,7 @@ class Pages extends PureComponent {
               Pages
               </div>
               {this.props.pages.map(this.renderPageLink.bind(this))}
-              <a className="panel-block">
+              <a className="panel-block" onClick={this.changePage.bind(this, null)}>
                 Add a new Page
               </a>
             </nav>

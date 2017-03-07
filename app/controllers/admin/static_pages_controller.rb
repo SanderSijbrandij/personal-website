@@ -1,6 +1,9 @@
 class Admin::StaticPagesController < Admin::BaseController
-  def index
-    @pages = StaticPage.all
+  def create
+    page = StaticPage.new(page_params)
+    if page.save
+      render json: page
+    end
   end
 
   def update
@@ -20,6 +23,6 @@ class Admin::StaticPagesController < Admin::BaseController
 
   private
     def page_params
-      params.require(:static_page).permit(:title, :content)
+      params.require(:static_page).permit(:link, :title, :content)
     end
 end

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Title from '../../shared/components/Title'
 import updatePage from '../actions/pages/update'
 import destroyPage from '../actions/pages/destroy'
+import createPage from '../actions/pages/create'
 
 class Page extends PureComponent {
   constructor() {
@@ -12,7 +13,8 @@ class Page extends PureComponent {
       isEditing: false,
       hasChanged: false,
       newTitleValue: null,
-      newContentValue: null
+      newContentValue: null,
+      newLinkValue: null
     }
   }
 
@@ -22,7 +24,8 @@ class Page extends PureComponent {
         isEditing: false,
         hasChanged: false,
         newTitleValue: null,
-        newContentValue: null
+        newContentValue: null,
+        newLinkValue: null
       })
     }
   }
@@ -35,6 +38,11 @@ class Page extends PureComponent {
   changeContentValue() {
     const changed = (this.props.currentPage.content !== this.refs.content.value)
     this.setState({ newContentValue: this.refs.content.value, hasChanged: changed })
+  }
+
+  changeLinkValue() {
+    const changed = (this.props.currentPage.link !== this.refs.link.value)
+    this.setState({ newLinkValue: this.refs.link.value, hasChanged: changed })
   }
 
   toggleEditing() {
@@ -51,13 +59,29 @@ class Page extends PureComponent {
   }
 
   saveChanges() {
-    if (this.state.hasChanged) {
-      const { link, title, content } = this.props.currentPage
-      const { newTitleValue, newContentValue } = this.state
+    const { link, title, content } = this.props.currentPage
+    const { newTitleValue, newContentValue, newLinkValue } = this.state
 
+    if (this.state.hasChanged && link !== null) {
       const saveTitle = newTitleValue || title
       const saveContent = newContentValue || content
+
       this.props.updatePage(link, {
+        title: saveTitle,
+        content: saveContent
+      })
+    } else if (link === null) {
+      const saveTitle = newTitleValue
+      const saveContent = newContentValue
+      const saveLink = newLinkValue
+
+      if (saveTitle === null || saveContent === null || saveLink === null) {
+        window.alert('Please fill in something for each field.')
+        return false
+      }
+
+      this.props.createPage({
+        link: saveLink,
         title: saveTitle,
         content: saveContent
       })
@@ -94,14 +118,14 @@ class Page extends PureComponent {
   }
 
   renderTitleEdit() {
-    const { title } = this.props.currentPage
+    const { link, title } = this.props.currentPage
     const { newTitleValue } = this.state
 
     return (
       <span className='control'>
         <input className='input' type='text' defaultValue={newTitleValue || title}
                onChange={this.changeTitleValue.bind(this)}
-               ref='title' />
+               ref='title' placeholder='Page title'/>
       </span>
     )
   }
@@ -114,15 +138,23 @@ class Page extends PureComponent {
       <div className='control'>
         <textarea className='textarea' defaultValue={newContentValue || content}
                   onChange={this.changeContentValue.bind(this)}
-                  ref='content'>
+                  ref='content' placeholder='Page text'>
         </textarea>
       </div>
     )
   }
 
+  renderLinkEdit() {
+    const { link } = this.props.currentPage
+    return (
+      <input type='text' className='input' ref='link' placeholder='Unique Identifier'
+             onChange={this.changeLinkValue.bind(this)} />
+    )
+  }
+
   render() {
     const { link, title, content } = this.props.currentPage
-    const { isEditing, hasChanged } = this.state
+    const { isEditing, hasChanged, newLinkValue } = this.state
 
     return (
       <div className="card">
@@ -131,7 +163,10 @@ class Page extends PureComponent {
             { !isEditing && this.renderTitleText() }
             { isEditing && this.renderTitleEdit() }
           </p>
-          <p className='card-header-icon'>id: {link}</p>
+          <p className='card-header-icon'>
+            { (!!link || !isEditing) && `id: ${newLinkValue || link || '...'}` }
+            { (!link && isEditing) && this.renderLinkEdit() }
+          </p>
         </header>
         <div className="card-content">
           <div className="content">
@@ -159,4 +194,4 @@ class Page extends PureComponent {
 }
 
 const mapStateToProps = ({currentPage}) => ({currentPage})
-export default connect(mapStateToProps, { updatePage, destroyPage })(Page)
+export default connect(mapStateToProps, { updatePage, destroyPage, createPage })(Page)
