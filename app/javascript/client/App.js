@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import store from './store'
 
-import Banner from './components/shared/Banner'
-import Navigation from './components/shared/Navigation'
-import Content from './components/shared/Content'
+import Banner from './components/Banner'
+import Navigation from './components/Navigation'
+import Content from './components/Content'
 
 class App extends PureComponent {
   render() {

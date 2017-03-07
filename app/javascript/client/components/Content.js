@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
-import fetchPages from '../../actions/pages/fetch'
-import getCurrentPage from '../../actions/pages/set-current'
+import fetchPages from '../../shared/actions/pages/fetch'
+import getCurrentPage from '../../shared/actions/pages/set-current'
 
-import Title from './Title'
+import Title from '../../shared/components/Title'
 
 class Content extends PureComponent {
   componentWillMount() {

@@ -2,9 +2,9 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import ReduxThunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
-import * as reducers from './reducers'
+import * as reducers from '../shared/reducers'
 
-import pageService from './middleware/api.js'
+import pageService from '../shared/middleware/api.js'
 
 const baseHistory = browserHistory
 const routingMiddleware = routerMiddleware(baseHistory)

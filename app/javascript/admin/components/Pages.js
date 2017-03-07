@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
-import fetchPages from '../actions/pages/fetch'
-import setCurrentPage from '../actions/pages/set-current'
+import fetchPages from '../../shared/actions/pages/fetch'
+import setCurrentPage from '../../shared/actions/pages/set-current'
 
 import Page from './Page'
 
