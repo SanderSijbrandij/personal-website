@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Title from '../../shared/components/Title'
 import updatePage from '../actions/pages/update'
+import destroyPage from '../actions/pages/destroy'
 
 class Page extends PureComponent {
   constructor() {
@@ -61,8 +62,19 @@ class Page extends PureComponent {
         content: saveContent
       })
     }
-    
+
     this.setState({ isEditing: false })
+  }
+
+  deletePage() {
+    const { link } = this.props.currentPage
+    if (link == 'about') {
+      window.alert('you can\'t delete the about page. Edit it instead.')
+      return false
+    }
+    if (window.confirm(`are you sure you want to delete ${link}?`)) {
+      this.props.destroyPage(link)
+    }
   }
 
   renderTitleText() {
@@ -139,7 +151,7 @@ class Page extends PureComponent {
             { !isEditing && 'Edit' }
             { isEditing && 'Preview' }
           </a>
-          <a className="card-footer-item">Delete</a>
+          <a className="card-footer-item" onClick={this.deletePage.bind(this)}>Delete</a>
         </footer>
       </div>
     )
@@ -147,4 +159,4 @@ class Page extends PureComponent {
 }
 
 const mapStateToProps = ({currentPage}) => ({currentPage})
-export default connect(mapStateToProps, { updatePage })(Page)
+export default connect(mapStateToProps, { updatePage, destroyPage })(Page)

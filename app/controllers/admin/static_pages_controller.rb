@@ -10,6 +10,12 @@ class Admin::StaticPagesController < Admin::BaseController
     end
   end
 
+  def destroy
+    page = StaticPage.find(params[:link])
+    page.destroy
+    render json: page
+  end
+
   def react_entry;end
 
   private
