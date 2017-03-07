@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @pages = StaticPage.all
+    @pages = StaticPage.all.order(:title)
     render json: @pages
   end
 

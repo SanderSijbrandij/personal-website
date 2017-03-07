@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import setCurrentPage from '../../actions/pages/set-current'
+import setCurrentPage from '../../shared/actions/pages/set-current'
 
 class Navigation extends PureComponent {
   changePage(page) {

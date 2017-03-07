@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Title from './Title'
+import Title from '../../shared/components/Title'
 
 class Banner extends PureComponent {
   render() {

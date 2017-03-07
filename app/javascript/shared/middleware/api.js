@@ -46,7 +46,6 @@ const pageService = store => dispatch => action => {
         .then(() => {
           dispatch(setCurrentPage(data, 'about'))
         })
-
       break
 
     default:

@@ -1,3 +1,6 @@
+// Font imports
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400')
+
 // Override variables here
 // You can add new ones or update existing ones:
 
@@ -16,6 +19,11 @@ $text:            $theme-medium
 $text-strong:     $theme-dark
 $body-background: $theme-background
 $border:          $theme-light
+$family-primary: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 // Lastly, import bulma
 @import "bulma"
+
+// Overwrite stuff
+.title, .subtitle
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif !important
