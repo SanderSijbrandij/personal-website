@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react'
 
+import Title from '../../shared/components/Title'
+
 export default class Navigation extends PureComponent {
   render() {
     return(
       <nav className="nav has-shadow">
         <div className="nav-left">
           <span className='nav-item'>
-            <p className='title is-4'>Admin Panel</p>
+            <Title text='Admin Panel' level='p' size='4' type='title' />
           </span>
         </div>
 

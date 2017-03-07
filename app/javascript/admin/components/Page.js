@@ -1,15 +1,22 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
-export default class Page extends PureComponent {
+import Title from '../../shared/components/Title'
+
+class Page extends PureComponent {
   render() {
-    const { link, title, content } = this.props
+    const { link, title, content } = this.props.currentPage
     return (
       <article className="article">
-        <h1 className='title is-2'>{title} <p className='subtitle is-5'>/{link}</p></h1>
+        <Title type='title' level='p' size='2' text={title} />
+        <Title type='subtitle' level='p' size='4' text={link} />
         { content }
         <hr />
-        Add edit form here.
+        InLine editor?
       </article>
     )
   }
 }
+
+const mapStateToProps = ({currentPage}) => ({currentPage})
+export default connect(mapStateToProps)(Page)

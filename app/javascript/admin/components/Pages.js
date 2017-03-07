@@ -35,11 +35,14 @@ class Pages extends PureComponent {
               Pages
               </div>
               {this.props.pages.map(this.renderPageLink.bind(this))}
+              <a className="panel-block">
+                Add a new Page
+              </a>
             </nav>
           </div>
 
           <div className='column'>
-            <Page link={link} title={title} content={content} />
+            <Page />
           </div>
         </div>
       </section>
