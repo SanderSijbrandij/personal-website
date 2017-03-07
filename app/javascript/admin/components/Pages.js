@@ -16,8 +16,11 @@ class Pages extends PureComponent {
   }
 
   renderPageLink(page) {
+    const classes = (page.link == this.props.currentPage.link)
+                    ? 'panel-block is-active'
+                    : 'panel-block'
     return(
-      <a onClick={this.changePage.bind(this, page.link)} key={page.link} className="panel-block">
+      <a onClick={this.changePage.bind(this, page.link)} key={page.link} className={classes}>
         {page.title}
       </a>
     )
