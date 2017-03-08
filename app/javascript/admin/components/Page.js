@@ -114,7 +114,9 @@ class Page extends PureComponent {
   renderContentText() {
     const { content } = this.props.currentPage
     const { newContentValue } = this.state
-    return newContentValue || content
+    const displayText = (newContentValue === null) ? content : newContentValue
+
+    return <div dangerouslySetInnerHTML={{__html: displayText }}></div>
   }
 
   renderTitleEdit() {
