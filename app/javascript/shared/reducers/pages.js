@@ -1,4 +1,4 @@
-import { GET_PAGES_RECEIVED } from '../middleware/api'
+import { GET_PAGES_RECEIVED } from '../actions/pages/fetch'
 import { UPDATE_PAGE } from '../../admin/actions/pages/update'
 import { DESTROY_PAGE } from '../../admin/actions/pages/destroy'
 import { CREATE_PAGE } from '../../admin/actions/pages/create'
