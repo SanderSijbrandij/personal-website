@@ -14,7 +14,7 @@ class Projects extends PureComponent {
       <div className='column is-4'>
         <div className="card" key={project.id}>
           <div className="card-image">
-            <figure className="image is-4by3">
+            <figure className="image is-3by2">
               <img src={ project.image } alt="Image" />
             </figure>
           </div>
@@ -32,7 +32,11 @@ class Projects extends PureComponent {
               <a href={ project.preview } target='_blank'>Live Preview</a>
               <hr />
               {project.tags.map((tag) => {
-                return <a key={tag.id} className='tag is-primary'>{ tag.text }</a>
+                return (
+                <span key={tag.id} className='tag is-primary'>
+                  { tag.text }
+                </span>
+              )
               })}
             </div>
           </div>

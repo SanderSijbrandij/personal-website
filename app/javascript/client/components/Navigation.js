@@ -28,7 +28,7 @@ class Navigation extends PureComponent {
 
   render() {
     return (
-      <nav className="nav has-shadow">
+      <nav className="nav has-shadow is-mobile">
         <div className="container">
           <div className="nav-left">
             { this.props.pages.map(this.renderTab.bind(this)) }
