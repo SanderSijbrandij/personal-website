@@ -5,6 +5,8 @@ import fetchPages from '../../shared/actions/pages/fetch'
 import getCurrentPage from '../../shared/actions/pages/set-current'
 
 import Title from '../../shared/components/Title'
+import Projects from './Projects'
+
 
 class Content extends PureComponent {
   componentWillMount() {
@@ -13,16 +15,20 @@ class Content extends PureComponent {
 
   render() {
     const { currentPage } = this.props
-    return (
-      <section className='section'>
-        <div className='container'>
-        { !currentPage && 'Loading content...' }
-        { !!currentPage && <Title text={currentPage.title} level='1' size='3' type='title' /> }
-        <hr />
-        { !!currentPage && <div dangerouslySetInnerHTML={{__html: currentPage.content }}></div>}
-        </div>
-      </section>
-    )
+    if (currentPage.link === 'projects') {
+      return <Projects />
+    } else {
+      return (
+        <section className='section'>
+          <div className='container'>
+          { !currentPage && 'Loading content...' }
+          { !!currentPage && <Title text={currentPage.title} level='1' size='3' type='title' /> }
+          <hr />
+          { !!currentPage && <div dangerouslySetInnerHTML={{__html: currentPage.content }}></div>}
+          </div>
+        </section>
+      )
+    }
   }
 }
 

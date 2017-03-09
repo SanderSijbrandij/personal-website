@@ -20,5 +20,4 @@ class App extends PureComponent {
   }
 }
 
-
 export default App

@@ -2,6 +2,17 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 
 export default (pages, link) => {
   let currentPage = { }
+  if (link === 'projects') {
+    return {
+      type: SET_CURRENT_PAGE,
+      payload: {
+        link: 'projects',
+        title: 'Projects',
+        content: null
+      }
+    }
+  }
+
   if (!!link) {
     currentPage = pages.filter((page) => {
       if (page.link == link) return true

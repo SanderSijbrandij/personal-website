@@ -4,6 +4,10 @@ import setCurrentPage from '../../shared/actions/pages/set-current'
 
 class Navigation extends PureComponent {
   changePage(page) {
+    if (page === 'projects') {
+      this.props.setCurrentPage(this.props.pages, 'projects')
+      return false
+    }
     this.props.setCurrentPage(this.props.pages, page)
   }
 
@@ -28,6 +32,10 @@ class Navigation extends PureComponent {
         <div className="container">
           <div className="nav-left">
             { this.props.pages.map(this.renderTab.bind(this)) }
+            <a onClick={this.changePage.bind(this, 'projects')}
+               className='nav-item is-tab'>
+               Projects
+            </a>
           </div>
         </div>
       </nav>
