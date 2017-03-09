@@ -52,6 +52,11 @@ class Content extends PureComponent {
     const { id } = this.props.currentProject
     console.log('link: ', link)
     console.log('id :', id)
+
+    const newPageClasses = (id === null && link === null)
+                            ? 'panel-block is-active'
+                            : 'panel-block'
+
     return (
       <section className='section'>
         <div className='columns'>
@@ -59,7 +64,7 @@ class Content extends PureComponent {
             <nav className="panel">
               <div className='panel-heading'>Pages</div>
               { this.props.pages.map(this.renderPageLink.bind(this)) }
-              <a className="panel-block" onClick={this.changePage.bind(this, null)}>
+              <a className={newPageClasses} onClick={this.changePage.bind(this, null)}>
                 Add a new Page
               </a>
               <div className='panel-heading'>Projects</div>

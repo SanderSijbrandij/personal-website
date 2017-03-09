@@ -27,6 +27,9 @@ class Page extends PureComponent {
         newContentValue: null,
         newLinkValue: null
       })
+      if (newProps.currentPage.link === null) {
+        this.setState({ isEditing: true })
+      }
     }
   }
 
