@@ -116,7 +116,7 @@ class Page extends PureComponent {
     const { newContentValue } = this.state
     const displayText = (newContentValue === null) ? content : newContentValue
 
-    return <div dangerouslySetInnerHTML={{__html: displayText }}></div>
+    return <div className='page-preview' dangerouslySetInnerHTML={{__html: displayText }}></div>
   }
 
   renderTitleEdit() {
@@ -140,7 +140,7 @@ class Page extends PureComponent {
       <div className='control'>
         <textarea className='textarea' defaultValue={newContentValue || content}
                   onChange={this.changeContentValue.bind(this)}
-                  ref='content' placeholder='Page text'>
+                  ref='content' placeholder='Page text' rows='20'>
         </textarea>
       </div>
     )
