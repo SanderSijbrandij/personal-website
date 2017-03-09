@@ -28,7 +28,7 @@ class Projects extends PureComponent {
             <div className="content">
               { project.description }
               <br /><br />
-              <a href={ project.github } target='_blank'>Github</a>
+              <a href={ project.github } target='_blank'>Github</a><br />
               <a href={ project.preview } target='_blank'>Live Preview</a>
               <hr />
               {project.tags.map((tag) => {

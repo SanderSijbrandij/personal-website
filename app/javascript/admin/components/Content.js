@@ -50,8 +50,6 @@ class Content extends PureComponent {
   render() {
     const { link } = this.props.currentPage
     const { id } = this.props.currentProject
-    console.log('link: ', link)
-    console.log('id :', id)
 
     const newPageClasses = (id === null && link === null)
                             ? 'panel-block is-active'
