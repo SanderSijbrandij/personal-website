@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import Navigation from './components/Navigation'
-import Pages from './components/Pages'
+import Content from './components/Content'
 
 class App extends PureComponent {
   render() {
@@ -11,12 +11,11 @@ class App extends PureComponent {
       <Provider store={store}>
         <div className='content'>
           <Navigation />
-          <Pages />
+          <Content />
         </div>
       </Provider>
     )
   }
 }
-
 
 export default App
