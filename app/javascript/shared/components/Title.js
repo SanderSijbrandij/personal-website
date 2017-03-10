@@ -1,6 +1,15 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 
 class Title extends PureComponent {
+  static get propTypes() {
+    return {
+      text: PropTypes.string.isRequired,
+      level: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      size: PropTypes.string.isRequired
+    }
+  }
+
   render() {
     const { text, level, type, size } = this.props
     const classes = `${type} is-${size}`
