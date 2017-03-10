@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
@@ -7,7 +7,7 @@ import App from './App'
 
 chai.use(chaiEnzyme())
 
-const app = shallow(<App />)
+const app = mount(<App />)
 
 describe('<App />', () => {
   it ('Renders a Banner component', () => {
