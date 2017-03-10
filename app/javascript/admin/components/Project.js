@@ -201,7 +201,6 @@ class Project extends PureComponent {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = ({currentProject}) => ({currentProject})
