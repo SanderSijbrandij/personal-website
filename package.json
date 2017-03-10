@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
+    "babel-plugin-react-transform": "^2.0.2",
     "babel-preset-env": "^1.2.0",
     "babel-preset-react": "^6.23.0",
     "babel-register": "^6.23.0",
@@ -15,6 +16,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "chai-spies": "^0.7.1",
+    "cheerio": "^0.22.0",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.4",
     "compression-webpack-plugin": "^0.3.2",

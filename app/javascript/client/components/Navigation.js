@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import setCurrentPage from '../../shared/actions/pages/set-current'
 
-class Navigation extends PureComponent {
+export class Navigation extends PureComponent {
   changePage(page) {
     if (page === 'projects') {
       this.props.setCurrentPage(this.props.pages, 'projects')

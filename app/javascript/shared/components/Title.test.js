@@ -6,7 +6,7 @@ import Title from './Title'
 
 chai.use(chaiEnzyme())
 
-describe ('</Title>', () => {
+describe ('<Title />', () => {
   context('prop: level', () => {
     it ('renders an h1 with level=1', () => {
       const title = shallow(<Title text='Hello Test' level='1' type='title' size='1' />)

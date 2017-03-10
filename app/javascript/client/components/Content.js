@@ -8,7 +8,7 @@ import Title from '../../shared/components/Title'
 import Projects from './Projects'
 
 
-class Content extends PureComponent {
+export class Content extends PureComponent {
   componentWillMount() {
     this.props.fetchPages()
   }
