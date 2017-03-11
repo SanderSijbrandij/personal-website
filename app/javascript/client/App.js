@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import fetchPages from '../shared/actions/pages/fetch'
@@ -8,6 +8,14 @@ import Navigation from './components/Navigation'
 import Content from './components/Content'
 
 export class App extends PureComponent {
+  static get propTypes() {
+    return {
+      pages: PropTypes.array.isRequired,
+      currentPage: PropTypes.object.isRequired,
+      fetchPages: PropTypes.func.isRequired,
+    }
+  }
+
   componentWillMount() {
     this.props.fetchPages()
   }
