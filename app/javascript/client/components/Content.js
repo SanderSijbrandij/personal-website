@@ -1,17 +1,9 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-
-import fetchPages from '../../shared/actions/pages/fetch'
 
 import Title from '../../shared/components/Title'
 import Projects from './Projects'
 
-
-export class Content extends PureComponent {
-  componentWillMount() {
-    this.props.fetchPages()
-  }
-
+class Content extends PureComponent {
   render() {
     const { currentPage } = this.props
     if (currentPage.link === 'projects') {
@@ -31,5 +23,4 @@ export class Content extends PureComponent {
   }
 }
 
-const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
-export default connect(mapStateToProps, { fetchPages })(Content)
+export default Content
