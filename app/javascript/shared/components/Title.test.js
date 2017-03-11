@@ -10,31 +10,31 @@ describe ('<Title />', () => {
   context('prop: level', () => {
     it ('renders an h1 with level=1', () => {
       const title = shallow(<Title text='Hello Test' level='1' type='title' size='1' />)
-      expect(title).to.have.descendants('h1')
+      expect(title).to.have.exactly(1).descendants('h1')
     })
     it ('renders an h2 with level=2', () => {
       const title = shallow(<Title text='Hello Test' level='2' type='title' size='1' />)
-      expect(title).to.have.descendants('h2')
+      expect(title).to.have.exactly(1).descendants('h2')
     })
     it ('renders an h3 with level=3', () => {
       const title = shallow(<Title text='Hello Test' level='3' type='title' size='1' />)
-      expect(title).to.have.descendants('h3')
+      expect(title).to.have.exactly(1).descendants('h3')
     })
     it ('renders an h4 with level=4', () => {
       const title = shallow(<Title text='Hello Test' level='4' type='title' size='1' />)
-      expect(title).to.have.descendants('h4')
+      expect(title).to.have.exactly(1).descendants('h4')
     })
     it ('renders an h5 with level=5', () => {
       const title = shallow(<Title text='Hello Test' level='5' type='title' size='1' />)
-      expect(title).to.have.descendants('h5')
+      expect(title).to.have.exactly(1).descendants('h5')
     })
     it ('renders an h6 with level=6', () => {
       const title = shallow(<Title text='Hello Test' level='6' type='title' size='1' />)
-      expect(title).to.have.descendants('h6')
+      expect(title).to.have.exactly(1).descendants('h6')
     })
     it ('renders an p with level=p', () => {
       const title = shallow(<Title text='Hello Test' level='p' type='title' size='1' />)
-      expect(title).to.have.descendants('p')
+      expect(title).to.have.exactly(1).descendants('p')
     })
   })
 
