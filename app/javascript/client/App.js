@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import fetchPages from '../shared/actions/pages/fetch'
+import fetchProjects from '../shared/actions/projects/fetch'
 
 import Banner from './components/Banner'
 import Navigation from './components/Navigation'
@@ -12,24 +13,31 @@ export class App extends PureComponent {
     return {
       pages: PropTypes.array.isRequired,
       currentPage: PropTypes.object.isRequired,
+      projects: PropTypes.array.isRequired,
       fetchPages: PropTypes.func.isRequired,
+      fetchProjects: PropTypes.func.isRequired,
     }
   }
 
   componentWillMount() {
     this.props.fetchPages()
+    this.props.fetchProjects()
   }
   render() {
-    const { pages, currentPage } = this.props
+    const { pages, currentPage, projects } = this.props
 
     return (
       <div className='content'>
         <Banner />
-        <Navigation pages={pages} currentPage={currentPage}/>
-        <Content currentPage={currentPage} />
+        <Navigation pages={pages} currentPage={currentPage} />
+        <Content currentPage={currentPage} projects={projects} />
       </div>
     )
   }
 }
-const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
-export default connect(mapStateToProps, { fetchPages})(App)
+const mapStateToProps = ({
+  pages, currentPage, projects
+}) => ({
+  pages, currentPage, projects
+})
+export default connect(mapStateToProps, { fetchPages, fetchProjects})(App)

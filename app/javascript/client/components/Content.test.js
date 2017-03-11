@@ -4,7 +4,6 @@ import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
 import Content from './Content'
-import Projects from './Projects'
 
 chai.use(chaiEnzyme())
 
@@ -30,7 +29,7 @@ describe('<Content />', () => {
     const content = shallow(<Content currentPage={currentPage} />)
 
     it ('Renders a Projects component instead', () => {
-      expect(content).to.have.descendants(Projects)
+      expect(content).to.have.descendants('Projects')
     })
   })
 })

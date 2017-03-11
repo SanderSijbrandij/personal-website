@@ -1,13 +1,20 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 
 import Title from '../../shared/components/Title'
 import Projects from './Projects'
 
 class Content extends PureComponent {
+  static get propTypes() {
+    return {
+      currentPage: PropTypes.object.isRequired,
+      projects: PropTypes.array.isRequired,
+    }
+  }
+
   render() {
-    const { currentPage } = this.props
+    const { currentPage, projects } = this.props
     if (currentPage.link === 'projects') {
-      return <Projects />
+      return <Projects projects={projects} />
     } else {
       return (
         <section className='section'>

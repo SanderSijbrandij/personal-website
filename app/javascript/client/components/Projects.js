@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import fetchProjects from '../../shared/actions/projects/fetch'
+import React, { PureComponent, PropTypes } from 'react'
 
 import Title from '../../shared/components/Title'
 
 class Projects extends PureComponent {
-  componentWillMount() {
-    this.props.fetchProjects()
+  static get propTypes() {
+    return {
+      projects: PropTypes.array.isRequired,
+    }
   }
 
   renderProject(project) {
@@ -60,5 +60,4 @@ class Projects extends PureComponent {
   }
 }
 
-const mapStateToProps = ({projects}) => ({projects})
-export default connect(mapStateToProps, { fetchProjects })(Projects)
+export default Projects
