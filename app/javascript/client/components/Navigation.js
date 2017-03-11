@@ -26,7 +26,7 @@ export class Navigation extends PureComponent {
                       'nav-item is-tab is-active' :
                       'nav-item is-tab'
       return <a onClick={this.changePage.bind(this, page.link)}
-                key={page.link}
+                key={page.link} id={page.link}
                 className={classes}>{page.title}
               </a>
     } else {
@@ -35,13 +35,18 @@ export class Navigation extends PureComponent {
   }
 
   render() {
+    const { currentPage } = this.props
+    const projectClasses = (currentPage.link == 'projects') ?
+                           'nav-item is-tab is-active' :
+                           'nav-item is-tab'
     return (
       <nav className="nav has-shadow is-mobile">
         <div className="container">
           <div className="nav-left">
             { this.props.pages.map(this.renderTab.bind(this)) }
             <a onClick={this.changePage.bind(this, 'projects')}
-               className='nav-item is-tab'>
+               className={projectClasses}
+               id="projects">
                Projects
             </a>
           </div>
