@@ -4,10 +4,11 @@ import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
 import App from './App'
+import wrapper from './test-wrapper'
 
 chai.use(chaiEnzyme())
 
-const app = mount(<App />)
+const app = wrapper(<App />)
 
 describe('<App />', () => {
   it ('wraps a div', () => {

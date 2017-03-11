@@ -7,7 +7,7 @@ import Banner from './components/Banner'
 import Navigation from './components/Navigation'
 import Content from './components/Content'
 
-class App extends PureComponent {
+export class App extends PureComponent {
   componentWillMount() {
     this.props.fetchPages()
   }
