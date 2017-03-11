@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import fetchPages from '../shared/actions/pages/fetch'
 import fetchProjects from '../shared/actions/projects/fetch'
+import setCurrentPage from '../shared/actions/pages/set-current'
 
 import Banner from './components/Banner'
 import Navigation from './components/Navigation'
@@ -23,13 +24,22 @@ export class App extends PureComponent {
     this.props.fetchPages()
     this.props.fetchProjects()
   }
+
+  changePage(page) {
+    if (page === 'projects') {
+      this.props.setCurrentPage(this.props.pages, 'projects')
+      return false
+    }
+    this.props.setCurrentPage(this.props.pages, page)
+  }
+
   render() {
-    const { pages, currentPage, projects } = this.props
+    const { pages, currentPage, projects, setCurrentPage } = this.props
 
     return (
       <div className='content'>
         <Banner />
-        <Navigation pages={pages} currentPage={currentPage} />
+        <Navigation pages={pages} currentPage={currentPage} changePage={this.changePage.bind(this)}/>
         <Content currentPage={currentPage} projects={projects} />
       </div>
     )
@@ -40,4 +50,4 @@ const mapStateToProps = ({
 }) => ({
   pages, currentPage, projects
 })
-export default connect(mapStateToProps, { fetchPages, fetchProjects})(App)
+export default connect(mapStateToProps, { fetchPages, fetchProjects, setCurrentPage})(App)

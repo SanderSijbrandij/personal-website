@@ -3,22 +3,17 @@ import { shallow, mount } from 'enzyme'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import spies from 'chai-spies'
-
-import wrapper from '../test-wrapper'
-
-import setCurrentPage from '../../shared/actions/pages/set-current'
 import Navigation from './Navigation'
 
 chai.use(chaiEnzyme())
 chai.use(spies)
 
-const pages = [
-  { link: 'about', title: 'About', content: 'content'},
-  { link: 'contact', title: 'Contact', content: 'Contact me'}
-]
+const changePage = (page) => { return null }
+const spy = chai.spy(changePage)
+
+const pages = [{ link: 'about', title: 'About', content: 'content'},{ link: 'contact', title: 'Contact', content: 'Contact me'}]
 const currentPage = { link: 'about', title: 'About', content: 'content'}
-const navigation = wrapper(<Navigation pages={pages} currentPage={currentPage} />)
-const changePage = chai.spy()
+const navigation = shallow(<Navigation pages={pages} currentPage={currentPage} changePage={spy} />)
 
 describe('<Navigation />', () => {
   it ('wraps a nav', () => {
@@ -35,23 +30,9 @@ describe('<Navigation />', () => {
     expect(activeTab).to.have.text('About')
     expect(activeTab).to.not.have.text('Contact')
   })
-
-  context ('When clicking on the active tab', () => {
-    it ('Doesn\'t change anything', () => {
-      navigation.find('#about').simulate('click')
-      expect(navigation.find('#about')).to.have.className('is-active')
-      expect(navigation.find('#contact')).to.not.have.className('is-active')
-    })
-  })
-
-  // FIXME: This works, test is wrong
-  context ('When clicking on another tab', () => {
-    it ('changes active state to the clicked tab', () => {
-      navigation.find('#contact').simulate('click')
-      
-      expect(changePage).to.have.been.called.exactly.once()
-      expect(navigation.find('#contact')).to.have.className('is-active')
-      expect(navigation.find('#about')).to.not.have.className('is-active')
-    })
+  it ('clicking a tab makes a call to changePage with the link as argument', () => {
+    navigation.find('#contact').simulate('click')
+    expect(spy).to.have.been.called.exactly.once()
+    expect(spy).to.have.been.called.with('contact')
   })
 })
