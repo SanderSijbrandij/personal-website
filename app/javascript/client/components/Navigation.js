@@ -43,5 +43,4 @@ export class Navigation extends PureComponent {
   }
 }
 
-const mapStateToProps = ({pages, currentPage}) => ({pages, currentPage})
-export default connect(mapStateToProps, { setCurrentPage })(Navigation)
+export default connect(null, { setCurrentPage })(Navigation)
