@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 
 import Title from '../../shared/components/Title'
 
-export default class Navigation extends PureComponent {
+class Navigation extends PureComponent {
   render() {
     return(
       <nav className="nav has-shadow">
@@ -23,3 +23,5 @@ export default class Navigation extends PureComponent {
     )
   }
 }
+
+export default Navigation

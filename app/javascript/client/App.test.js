@@ -10,6 +10,9 @@ chai.use(chaiEnzyme())
 const app = mount(<App />)
 
 describe('<App />', () => {
+  it ('wraps a div', () => {
+    expect(app).to.have.tagName('div')
+  })
   it ('Renders a Banner component', () => {
     expect(app).to.have.descendants('Banner')
   })

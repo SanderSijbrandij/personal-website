@@ -22,7 +22,7 @@ export class Content extends PureComponent {
         <section className='section'>
           <div className='container'>
           { !currentPage && 'Loading content...' }
-          { !!currentPage && <Title text={currentPage.title} level='1' size='3' type='title' /> }
+          { !!currentPage && <Title text={currentPage.title || 'Loading...'} level='1' size='3' type='title' /> }
           <hr />
           { !!currentPage && <div dangerouslySetInnerHTML={{__html: currentPage.content }}></div>}
           </div>

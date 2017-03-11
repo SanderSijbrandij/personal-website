@@ -11,8 +11,8 @@ class Projects extends PureComponent {
 
   renderProject(project) {
     return (
-      <div className='column is-4'>
-        <div className="card" key={project.id}>
+      <div className='column is-4' key={project.id}>
+        <div className="card">
           <div className="card-image">
             <figure className="image is-3by2">
               <img src={ project.image } alt="Image" />

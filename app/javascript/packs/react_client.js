@@ -3,11 +3,15 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import { Provider } from 'react-redux'
+import store from '../client/store'
 import App from '../client/App'
 
 document.addEventListener("DOMContentLoaded", e => {
   ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+      <App />
+    </Provider>
+    ,
     document.body.appendChild(document.createElement('div')))
 })
