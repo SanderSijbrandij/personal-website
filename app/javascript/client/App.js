@@ -26,10 +26,6 @@ export class App extends PureComponent {
   }
 
   changePage(page) {
-    if (page === 'projects') {
-      this.props.setCurrentPage(this.props.pages, 'projects')
-      return false
-    }
     this.props.setCurrentPage(this.props.pages, page)
   }
 
@@ -45,9 +41,7 @@ export class App extends PureComponent {
     )
   }
 }
-const mapStateToProps = ({
-  pages, currentPage, projects
-}) => ({
+const mapStateToProps = ({pages, currentPage, projects}) => ({
   pages, currentPage, projects
 })
 export default connect(mapStateToProps, { fetchPages, fetchProjects, setCurrentPage})(App)
