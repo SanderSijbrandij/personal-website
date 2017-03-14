@@ -10,6 +10,9 @@ class Projects extends PureComponent {
   }
 
   renderProject(project) {
+    const hasgithub = (project.github !== '#')
+    const haspreview = (project.preview !== '#')
+
     return (
       <div className='column is-4' key={project.id}>
         <div className="card">
@@ -28,8 +31,9 @@ class Projects extends PureComponent {
             <div className="content">
               { project.description }
               <br /><br />
-              <a href={ project.github } target='_blank'>Github</a><br />
-              <a href={ project.preview } target='_blank'>Live Preview</a>
+              { hasgithub && <a href={ project.github } target='_blank'>Github</a> }
+              <br />
+              { haspreview && <a href={ project.preview } target='_blank'>Live Preview</a> }
               <hr />
               {project.tags.map((tag) => {
                 return (
