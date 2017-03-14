@@ -55,6 +55,10 @@ class Content extends PureComponent {
                             ? 'panel-block is-active'
                             : 'panel-block'
 
+    const newProjectClasses = (id === null && link === 'projects')
+                              ? 'panel-block is-active'
+                              : 'panel-block'
+
     return (
       <section className='section'>
         <div className='columns'>
@@ -67,6 +71,9 @@ class Content extends PureComponent {
               </a>
               <div className='panel-heading'>Projects</div>
               { this.props.projects.map(this.renderProjectLink.bind(this)) }
+              <a className={newProjectClasses} onClick={this.changeProject.bind(this, null)}>
+                Add a new Project
+              </a>
             </nav>
           </div>
           <div className='column'>
