@@ -2,8 +2,8 @@
   "name": "personal-website",
   "private": true,
   "scripts": {
-    "test": "mocha app/javascript/shared/test/setup.js --recursive app/javascript/shared/**/*.test.js app/javascript/client/*.test.js app/javascript/client/**/*.test.js app/javascript/admin/*.test.js app/javascript/admin/**/*.test.js",
-    "test:watch": "mocha -w app/javascript/shared/test/setup.js -G --recursive app/javascript/shared/**/*.test.js app/javascript/client/*.test.js app/javascript/client/**/*.test.js app/javascript/admin/*.test.js app/javascript/admin/**/*.test.js"
+    "test": "mocha app/javascript/shared/test/setup.js --recursive app/javascript/shared/**/*.test.js app/javascript/shared/**/**/*.test.js app/javascript/client/*.test.js app/javascript/client/**/*.test.js app/javascript/admin/*.test.js app/javascript/admin/**/*.test.js",
+    "test:watch": "mocha -w app/javascript/shared/test/setup.js -G --recursive app/javascript/shared/**/*.test.js app/javascript/shared/**/**/*.test.js app/javascript/client/*.test.js app/javascript/client/**/*.test.js app/javascript/admin/*.test.js app/javascript/admin/**/*.test.js"
   },
   "dependencies": {
     "babel-core": "^6.23.1",
