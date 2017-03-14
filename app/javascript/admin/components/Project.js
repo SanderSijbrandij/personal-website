@@ -160,7 +160,7 @@ class Project extends PureComponent {
   }
 
   deleteProject() {
-    const { id, title } = this.props.currentPage
+    const { id, title } = this.props.currentProject
     if (window.confirm(`are you sure you want to delete ${title}?`)) {
       this.props.destroyProject(id)
     }
