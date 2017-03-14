@@ -33,7 +33,7 @@ export default () => {
 
       // for now, we'll assume no errors :]
       .then(() => {
-        dispatch(setCurrentPage(data, 'about'))
+        dispatch(setCurrentPage(data, 'projects'))
       })
   }
 }

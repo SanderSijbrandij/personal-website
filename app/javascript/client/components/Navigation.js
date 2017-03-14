@@ -33,12 +33,12 @@ class Navigation extends PureComponent {
       <nav className="nav has-shadow is-mobile">
         <div className="container">
           <div className="nav-left">
-            { pages.map(this.renderTab.bind(this)) }
             <a onClick={changePage.bind(null, 'projects')}
                className={projectClasses}
                id="projects">
                Projects
             </a>
+            { pages.map(this.renderTab.bind(this)) }
           </div>
         </div>
       </nav>
