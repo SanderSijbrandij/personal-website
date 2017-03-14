@@ -95,10 +95,6 @@ class Page extends PureComponent {
 
   deletePage() {
     const { link } = this.props.currentPage
-    if (link == 'about') {
-      window.alert('you can\'t delete the about page. Edit it instead.')
-      return false
-    }
     if (window.confirm(`are you sure you want to delete ${link}?`)) {
       this.props.destroyPage(link)
     }
