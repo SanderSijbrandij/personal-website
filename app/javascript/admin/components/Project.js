@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
-import Title from '../../shared/components/Title'
+import updateProject from '../actions/projects/update'
+import destroyProject from '../actions/projects/destroy'
+import createProject from '../actions/projects/create'
 
 class Project extends PureComponent {
   constructor() {
@@ -102,6 +104,66 @@ class Project extends PureComponent {
 
     this.setState({ isEditing: !isEditing })
     this.setState({ hasChanged: changed })
+  }
+
+  saveChanges() {
+    const {
+      newTitleValue,
+      newSubtitleValue,
+      newDescriptionValue,
+      newImageValue,
+      newGithubValue,
+      newPreviewValue,
+      newTagsValue } = this.state
+
+    const {
+      id,
+      title,
+      subtitle,
+      description,
+      image,
+      github,
+      preview,
+      tags } = this.props.currentProject
+
+    const saveTitle = newTitleValue || title
+    const saveSubtitle = newSubtitleValue || subtitle
+    const saveDescription = newDescriptionValue || description
+    const saveImage = newImageValue || image
+    const saveGithub = newGithubValue || github
+    const savePreview = newPreviewValue || preview
+    const saveTags = newTagsValue || tags
+
+    if (this.state.hasChanged && id !== null) {
+      this.props.updateProject(id, {
+        title: saveTitle,
+        subtitle: saveSubtitle,
+        description: saveDescription,
+        image: saveImage,
+        github: saveGithub,
+        preview: savePreview,
+        tags: saveTags
+      })
+    } else if (id === null) {
+      this.props.createProject({
+        title: saveTitle,
+        subtitle: saveSubtitle,
+        description: saveDescription,
+        image: saveImage,
+        github: saveGithub,
+        preview: savePreview,
+        tags: saveTags
+      })
+    }
+
+    this.setState({ isEditing: false })
+  }
+
+  deleteProject() {
+    const { id, title } = this.props.currentPage
+    if (window.confirm(`are you sure you want to delete ${title}?`)) {
+      this.props.destroyProject(id)
+    }
   }
 
   renderForm() {
@@ -229,13 +291,13 @@ class Project extends PureComponent {
           }
           { hasChanged &&
             <a className="card-footer-item"
-               onClick={null}>Save changes</a>
+               onClick={this.saveChanges.bind(this)}>Save changes</a>
           }
           <a className="card-footer-item" onClick={this.toggleEditing.bind(this)}>
             { !isEditing && 'Edit' }
             { isEditing && 'Preview' }
           </a>
-          <a className="card-footer-item" onClick={null}>Delete</a>
+          <a className="card-footer-item" onClick={this.deleteProject.bind(this)}>Delete</a>
         </footer>
       </div>
     )
@@ -243,4 +305,5 @@ class Project extends PureComponent {
 }
 
 const mapStateToProps = ({currentProject}) => ({currentProject})
-export default connect(mapStateToProps)(Project)
+const mapDispatchToProps = { updateProject, destroyProject, createProject }
+export default connect(mapStateToProps, mapDispatchToProps)(Project)
