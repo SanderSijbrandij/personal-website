@@ -79,6 +79,7 @@ class Content extends PureComponent {
           <div className='column'>
             { link !== 'projects' && <Page /> }
             { link === 'projects' && <Project /> }
+            { link === null && changePage(this.props.pages[0].title)}
           </div>
         </div>
       </section>

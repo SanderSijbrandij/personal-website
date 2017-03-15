@@ -108,6 +108,7 @@ class Project extends PureComponent {
   }
 
   saveChanges() {
+
     const {
       newTitleValue,
       newSubtitleValue,
@@ -116,6 +117,20 @@ class Project extends PureComponent {
       newGithubValue,
       newPreviewValue,
       newTagsValue } = this.state
+
+    if (!this.props.currentProject.id) {
+      const newProject = {
+        title: newTitleValue,
+        subtitle: newSubtitleValue,
+        description: newDescriptionValue,
+        image: newImageValue,
+        github: newGithubValue,
+        preview: newPreviewValue,
+        tags: (newTagsValue || [])
+      }
+      this.props.createProject(newProject)
+      return false
+    }
 
     const {
       id,
@@ -232,8 +247,8 @@ class Project extends PureComponent {
   }
 
   renderText() {
-    const project = this.props.currentProject
-
+    let project = this.props.currentProject
+    project.tags = project.tags || []
     const {
       isEditing,
       hasChanged,
