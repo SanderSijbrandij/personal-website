@@ -37,11 +37,11 @@ class Content extends PureComponent {
   }
 
   renderProjectLink(project) {
-    const classes = (project.id == this.props.currentProject.id)
+    const classes = (project.title == this.props.currentProject.title)
                     ? 'panel-block is-active'
                     : 'panel-block'
     return(
-      <a onClick={this.changeProject.bind(this, project.id)} key={project.id} className={classes}>
+      <a onClick={this.changeProject.bind(this, project.title)} key={project.title} className={classes}>
         {project.title}
       </a>
     )
@@ -49,13 +49,13 @@ class Content extends PureComponent {
 
   render() {
     const { link } = this.props.currentPage
-    const { id } = this.props.currentProject
+    const { title } = this.props.currentProject
 
-    const newPageClasses = (id === null && link === null)
+    const newPageClasses = (title === null && link === null)
                             ? 'panel-block is-active'
                             : 'panel-block'
 
-    const newProjectClasses = (id === null && link === 'projects')
+    const newProjectClasses = (title === null && link === 'projects')
                               ? 'panel-block is-active'
                               : 'panel-block'
 
@@ -78,7 +78,7 @@ class Content extends PureComponent {
           </div>
           <div className='column'>
             { link !== 'projects' && <Page /> }
-            { !!id && <Project /> }
+            { link === 'projects' && <Project /> }
           </div>
         </div>
       </section>

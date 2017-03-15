@@ -5,17 +5,17 @@ export default (projects, projectId) => {
   if (projectId === null) {
     return {
       type: SET_CURRENT_PROJECT,
-      payload: { id: null }
+      payload: { title: null }
     }
   }
 
   if (!!projectId) {
     currentProject = projects.filter((project) => {
-      if (project.id == projectId) return true
+      if (project.title == projectId) return true
       return false
     })[0]
   } else {
-    currentProject = { id: null }
+    currentProject = { title: null }
   }
 
   return {

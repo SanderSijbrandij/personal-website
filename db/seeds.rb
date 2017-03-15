@@ -47,7 +47,7 @@ Project.create!(title: 'Another Project',
               preview: 'http://github.com/SanderSijbrandij/',
               tags: [tags[2], tags[1]])
 
-Project.create!(title: 'Another Project',
+Project.create!(title: 'Another Project 2',
               subtitle: 'This is also a seed',
               description: 'Maybe a bit of a longer description text this time? I really enjoyed working on this project seeing as it was made for a banana. Yes, a banana.',
               image: 'http://placehold.it/1200x800',
@@ -55,7 +55,7 @@ Project.create!(title: 'Another Project',
               preview: 'http://github.com/SanderSijbrandij/',
               tags: [tags[1], tags[2]])
 
-Project.create!(title: 'Another Project',
+Project.create!(title: 'Another Project 3',
               subtitle: 'This is also a seed',
               description: 'Maybe a bit of a longer description text this time? I really enjoyed working on this project seeing as it was made for a banana. Yes, a banana.',
               image: 'http://placehold.it/1200x800',
@@ -63,7 +63,7 @@ Project.create!(title: 'Another Project',
               preview: '#',
               tags: [tags[3], tags[1]])
 
-Project.create!(title: 'Another Project',
+Project.create!(title: 'Another Project 4',
               subtitle: 'This is also a seed',
               description: 'Maybe a bit of a longer description text this time? I really enjoyed working on this project seeing as it was made for a banana. Yes, a banana.',
               image: 'http://placehold.it/1200x800',

@@ -24,7 +24,7 @@ class Project extends PureComponent {
   componentWillReceiveProps(newProps) {
     if (this.props.currentProject !== newProps.currentProject) {
       this.setState({
-        isEditing: false,
+        isEditing: !newProps.currentProject.id,
         hasChanged: false,
         newTitleValue: null,
         newSubtitleValue: null,
@@ -34,7 +34,8 @@ class Project extends PureComponent {
         newPreviewValue: null,
         newTagsValue: null
       })
-      if (newProps.currentProject.id === null) {
+      if (!newProps.currentProject.id) {
+        console.log('new project')
         this.setState({ isEditing: true })
       }
     }
@@ -280,7 +281,9 @@ class Project extends PureComponent {
 
   render() {
     const { hasChanged, isEditing } = this.state
-    const renderMethod = (isEditing) ? this.renderForm : this.renderText
+    const renderMethod = (isEditing)
+                          ? this.renderForm
+                          : this.renderText
 
     return (
       <div className="card">
